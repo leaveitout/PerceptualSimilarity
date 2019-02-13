@@ -12,7 +12,7 @@ from scipy.ndimage.interpolation import zoom
 from skimage.measure import compare_ssim
 import torch
 from IPython import embed
-import cv2
+# import cv2
 from datetime import datetime
 
 def datetime_str():
@@ -162,19 +162,19 @@ def diagnose_network(net, name='network'):
 def grab_patch(img_in, P, yy, xx):
     return img_in[yy:yy+P,xx:xx+P,:]
 
-def load_image(path):
-    if(path[-3:] == 'dng'):
-        import rawpy
-        with rawpy.imread(path) as raw:
-            img = raw.postprocess()
-        # img = plt.imread(path)
-    elif(path[-3:]=='bmp' or path[-3:]=='jpg' or path[-3:]=='png'):
-        import cv2
-        return cv2.imread(path)[:,:,::-1]
-    else:
-        img = (255*plt.imread(path)[:,:,:3]).astype('uint8')
+# def load_image(path):
+    # if(path[-3:] == 'dng'):
+        # import rawpy
+        # with rawpy.imread(path) as raw:
+            # img = raw.postprocess()
+        # # img = plt.imread(path)
+    # elif(path[-3:]=='bmp' or path[-3:]=='jpg' or path[-3:]=='png'):
+        # import cv2
+        # return cv2.imread(path)[:,:,::-1]
+    # else:
+        # img = (255*plt.imread(path)[:,:,:3]).astype('uint8')
 
-    return img
+    # return img
 
 
 def resize_image(img, max_size=256):
